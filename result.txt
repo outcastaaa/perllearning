@@ -1,0 +1,62 @@
+# 结果：
+
+1. 
+#/user/bin/perl  
+my @lines = `perldoc -u -f atan2`;
+foreach(@lines){
+  s/\w<([^>]+)>/\U$1/g;
+  print;
+}
+
+
+
+
+# perldoc -u -f atan2：
+
+=over 8
+
+=item atan2 Y,X
+X<atan2> X<arctangent> X<tan> X<tangent>
+
+=for Pod::Functions arctangent of Y/X in the range -PI to PI
+
+Returns the arctangent of Y/X in the range -PI to PI.
+
+For the tangent operation, you may use the
+L<C<Math::Trig::tan>|Math::Trig/B<tan>> function, or use the familiar
+relation:
+
+    sub tan { sin($_[0]) / cos($_[0])  }
+
+The return value for C<atan2(0,0)> is implementation-defined; consult
+your L<atan2(3)> manpage for more information.
+
+Portability issues: L<perlport/atan2>.
+
+=back
+
+
+
+
+# 长代码：
+=over 8
+
+=item atan2 Y,X
+ATAN2 ARCTANGENT TAN TANGENT
+
+=for Pod::Functions arctangent of Y/X in the range -PI to PI
+
+Returns the arctangent of Y/X in the range -PI to PI.
+
+For the tangent operation, you may use the
+C<MATH::TRIG::TAN|Math::Trig/TAN> function, or use the familiar
+relation:
+
+    sub tan { sin($_[0]) / cos($_[0])  }
+
+The return value for ATAN2(0,0) is implementation-defined; consult
+your ATAN2(3) manpage for more information.
+
+Portability issues: PERLPORT/ATAN2.
+
+=back
