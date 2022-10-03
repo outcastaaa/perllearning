@@ -44,12 +44,14 @@ say "this is $alpha1.\n";
 say "this is \x{03B1}.\n";
 # 都是  this is α.
 
-my $line = <STDIN>;
-if ($line eq "\n"){
-    say "that is just a blank line!\n";  
+ my $line = <STDIN>;
+ if ($line eq "\n"){
+   say "that is just a blank line!\n";  
 }else{
-    say "that line of input was: $line";
+   say "that line of input was: $line";
 }
   
 # xrz
 # that line of input was: xrz
+
+
