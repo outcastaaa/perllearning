@@ -40,16 +40,7 @@ print "I have ", @rock, "rocks!\n";
 print "I have ", scalar @rock, " rocks!\n";
 print "I have  $#rock rocks!\n";
 
-$fred = 3;
-$barney =4;
-use warnings;
-sub sum{
-    print "you called the sum!\n";
-    $fred + $barney;
-    print "im returning a value.\n";
-}
 
-&sum;
 
 # 70-1:
 use warnings;
