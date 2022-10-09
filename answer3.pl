@@ -110,3 +110,196 @@ sub marine{
 &marine;
 &marine;
 &marine;
+
+
+#做数组每个参数连续加法
+use v5.34;
+running_sum(5,6);
+running_sum(1..4);
+running_sum(4);
+
+sub running_sum{
+    state $sum = 0;
+    state @numbers;
+
+    foreach my $number(@_){
+        push @numbers,$number;
+        $sum += $number;
+    }
+    say "the sum of (@numbers) is $sum";
+}
+
+
+
+
+
+
+use v5.34;
+
+running_sum(5,6);
+running_sum(1..4);
+running_sum(4);
+
+sub running_sum{
+    state $sum = 0;
+    my @numbers;
+    foreach my $number(@_){
+        push @numbers,$number;
+        $sum += $number;
+    }
+    say "the sum of (@numbers) is $sum.";
+}
+
+state @array = qw {a b c};
+
+
+
+
+
+use v5.34;
+use feature qw{signatures};
+no warnings qw {experimental::signatures};
+
+
+sub min($m, $n){
+    if ($m > $n){print "$n\n"  }else {print  "$m\n"}
+}
+&min(5,12);
+
+
+
+
+
+
+ sub maxa($max_so_fara, @ ){
+    foreach (@_){
+        if ($_ > $max_so_fara){
+            $max_so_fara = $_;
+        }
+    }
+    print $max_so_fara."\n";
+ }
+
+&maxa(4,5,337,10);
+
+
+#88-1:
+
+sub total{
+    state $sum =0;
+    foreach (@_){
+        $sum += $_;
+}
+  $sum;
+}
+
+my @fred = qw{1 3 5 7 9 };
+my $fred_total = &total(@fred);
+print "the total of \@fred is $fred_total.\n";
+
+
+print "enter some numbers on seperate lines\n";
+#my $user_total = total (<STDIN>);
+#print "the total of those numbers is $user_total.\n";
+
+
+#88-2:
+
+sub sum_total {
+    my $sum = 0;
+    foreach (@_){
+        $sum += $_;
+    }
+    $sum;
+}
+
+my @num = 1 .. 100;
+my $num_total = &sum_total(@num);
+
+print "the sum from 1 to 100 is $num_total.\n";
+
+
+
+#88-3:
+sub average{
+    my $average = 0;
+    my $sum = 0;
+    my $list;
+    foreach (@_){
+        $sum += $_;  
+    }
+    #$list = $#_;!别忘了从0开始；
+    $list = $#_ +1;  # 或者 my $count = @_;直接将数组当标量，计算列表数目；
+    $average = $sum / $list;
+}
+
+my $fff = average(1 .. 10);
+print "$fff\n";
+
+
+sub above_average{
+    my @larger_than_ave;
+    my $average = average(@_);
+    foreach (@_){
+        if ($_ > $average){
+            push (@larger_than_ave, $_);
+            }
+    }
+    @larger_than_ave;
+}
+
+ @fred = above_average(1 .. 10);
+print "\@fred is @fred.\n";
+print "(should be 6 7 8 9 10)\n";
+
+my @barney = above_average(100, 1 ..10);
+print "\@barney is @barney.\n";
+print "(should be 100)\n";
+
+#my @f = above_average();
+#print "\@f is @f.\n";
+#Illegal division by zero at answer3.pl line 233.
+
+#88-4:
+sub greet{
+    state $last_name;
+    my $name = shift; #调取最头上的参数，即第一个名字；
+
+    print "hi $name!";
+
+    if (defined $last_name){   #判断last_name 中是否有值；
+        print "$last_name is also here.\n";
+    }else{
+        print "you are the first one here.\n";
+    }
+
+    $last_name = $name;
+}
+
+greet("fred");
+greet("barney");
+greet("coconut");
+
+
+#88-5：
+use v5.34;
+
+gret("fred");
+gret("barney");
+gret("coconut");
+
+sub gret{
+    state @names; #保留所有名字列表；
+    my $name = shift; #调取最头上的参数，即第一个名字；
+   
+
+    print "hi $name!";
+
+    if (@names){   #判断是否有值；如果变量没有被赋值，返回为假；
+        print "I've seen: @names\n";
+    }else{
+        print "you are the first one here.\n";
+    }
+    push (@names, $name);
+}
+
