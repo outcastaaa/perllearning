@@ -37,12 +37,70 @@ print "@v\n";
 #a c b 都没有顺序
 #1 3 2
 
-my $count = keys $hash;
+my $count = keys %hash;
 print "$count\n";
+#3
+
 
 if (%hash){
     print "it was a true value.\n";
 }
 
 
-#
+#each函数
+while (($key, $value) = each %hash ){
+    print "$key => $value\n";
+}
+#b => 2
+#a => 1
+#c => 3
+
+
+#对键排序：
+my $value;
+foreach $key (sort keys %hash){
+    $value = $hash{$key};
+    print "$key => $value\n";
+}
+
+#借书程序
+my %books = ('fred' => 3, 'wilma' => 1, 'barney' => 0, );
+$books{'fred'} = 3;
+$books{'wilma'} = 1;
+if ($book{$someone}){
+    print "$someone has at least one book checked out.\n";
+}
+
+#exists函数:检查有没有该键
+if (exists $books{'dino'}){
+    print "hey there is a library card for dino.\n";
+}else{
+    print "there is no dino's card.\n";
+}
+
+
+
+#delete函数
+my %books = ('fred' => 3, 'wilma' => 1, 'barney' => 0, );
+my $num = keys %books;
+print "number of keys is $num.\n";
+
+my $person = 'barney';
+delete $books{$person};
+my $num = keys %books;
+print "number of keys is $num.\n";
+
+
+#hash内插：每位借阅者借阅了几本书
+my %books = ('fred' => 3, 'wilma' => 1, 'barney' => 0, );
+my $person;
+foreach $person(sort keys %books){
+    if ($books{$person}){
+        print "$person has $books{$person} items.\n";
+    }
+}
+
+#%ENV
+print "PATH is $ENV{PATH}.\n";
+#PATH is /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/xuruizhi/.local/bin:/home/xuruizhi/bin:/home/xuruizhi/share/mysql/bin:/home/xuruizhi/.cargo/bin:/home/linuxbrew/.linuxbrew/opt/python@3.9/bin:/home/linuxbrew/.linuxbrew/opt/python@3.9/libexec/bin:/home/linuxbrew/.linuxbrew/Cellar/perl/5.34.0/bin:/home/xuruizhi/bin:/home/xuruizhi/.local/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/d/MEGA11:/mnt/c/Program Files/PowerShell/7/:/mnt/d/c/bin:/mnt/d/perl/site/bin:/mnt/d/perl/bin:/mnt/c/Users/XRZ/scoop/shims:/mnt/c/Users/XRZ/AppData/Local/Microsoft/WindowsApps:/mnt/d/Microsoft VS Code/bin:/mnt/c/Users/XRZ/AppData/Local/GitHubDesktop/bin:/snap/bin.
+
