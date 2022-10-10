@@ -1,94 +1,45 @@
-#!user/bin/perl
+# 习题答案:
+
+# 52-1: 计算⚪的周长
+
+#！user/bin/perl
+my $r = '12.5';
+my $pi = 3.141592654;
+my $c = 2*$r*$pi;
+print "$c\n";
+
+# 78.53981635
+
+# 52-2: 用户输入半径并计算⚪的周长
+ use warnings;
+ use utf8;
+ chomp(my $r1 = <STDIN>);
+ my $Π = 3.141592654;
+ my $c1 = 2*$r1*$Π;
+ print "the circumference of a circle of radius $r1 is $c1.\n";  
+
+# 52-3:
 use warnings;
-@rocks = qw {1 2 3 };
-print "4 @rocks 5\n";
-
-foreach $rock (qw{ 1 2 3 }){
-    print "one rock is $rock.\n";
+my $r2 = <STDIN>;
+if ($r2 lt 0){
+    print "please enter a num larger than 0.\n";
+}else{
+    my $c2 = 2*$r2*3.141592654;
+    print "$c2\n";
 }
 
-#one rock is 1.
-#one rock is 2.
-#one rock is 3.
+# 52-4:
+print "please enter a num\n";
+chomp(my $n1 = <STDIN>);
+print "please enter another num\n";
+chomp(my $n2 = <STDIN>);
+my $n3 = $n1 * $n2;
+print "the answer is $n3\n";
 
-# foreach @rocks {
-#    print "one rock is @rocks.\n";
-#}
-
-@rocks = qw{ ssdf fbb efwgh};
-foreach $rock(@rocks){
-    $rock = "\t$rock";
-    $rock .= "\n";
-}
-print "the rocks are:\n",@rocks;
-
-@rocks = qw{ ssdf fbb efwgh};
-while (($index,$value)= each @rocks){
-    print "$index :  $value\n";
-}
-
-#0 :  ssdf
-#1 :  fbb
-#2 :  efwgh
-
-# print each @rocks; 0ssdf
-# print "each @rocks"; each ssdf fbb efwgh
-
-@rock = qw{1 2 3 4 5 };
-print "how many rocks do you have?\n";
-print "I have ", @rock, "rocks!\n";
-print "I have ", scalar @rock, " rocks!\n";
-print "I have  $#rock rocks!\n";
-
-
-
-# 70-1:
-use warnings;
-@lines = <STDIN>;
-@rlines = reverse @lines;
-print @rlines;
-# 结果：将输入的字符串顺序倒换；
-
-# or
-
-# print reverse <STDIN>;
-
-# 70-2：
-
-
-#foreach $a(@name){
-#    print "please enter some number\n";
-#    $b = <STDIN>;
-#    print ($b,$a);
-#}
-
-@name = qw {fred betty barney dine wilma pebbles bamm};
-print "please enter some numbers from 1 to 7.\n";
-chomp (@number = <STDIN>);
-foreach $c(@number){
-    print "$name[$c-1]\n";
-}
-
-# 输入的数据是形成了number数组，但是通过$c将其一个一个调用
-foreach $d(qw/5 2 3/){
-    print "$name[$d-1]\n";
-}
-
-# 70-3:
-#在一行
-@names = qw {fred betty wilma barney};
-@sorted = sort(@names);
-print "@sorted\n";
-#换行
-foreach $a(@sorted){
-    print "$a"."\n";
-}
-
-
-#70-3通过键盘输入实现：
-#在一行
-chomp(@names = <STDIN>);# 一次性读入所有行，换行符除外；
-@sorted = sort @names;
-print "@sorted";
-#换行
-print sort <STDIN>;
+# 52-5:
+print "please enter a num\n";
+my $n = <STDIN>;
+print "please enter a string\n";
+my $cs= <STDIN>;
+my $a = $s x $n;
+print "$a\n";
