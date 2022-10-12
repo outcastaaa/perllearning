@@ -84,7 +84,8 @@ print "results: @words\n";
 
 #将成对匹配结果放在哈希中
 my $text = "barney rubble fred flintstone wilma flintstone";
-my %name = ($text =~ /(?=(\w+)\s+(\w+))/g);
+#my %name = ($text =~ /(?=(\w+)\s+(\w+))/g);、
+my %name = ($text =~ /(\w+)\s+(\w+)/g);
 my @key = keys %name;
 my @value = values %name;
 
@@ -101,6 +102,11 @@ foreach(@value){
 #barney fred wilma
 #rubble flintstone flintstone
 
+#非贪婪词
+my $text = '<b>Fred</b> and <b>Barney</b>';
+my $match_count = $text =~ s|<b>(.*?)</b>|\U$1|g;
+print "$match_count : $text\n";
+#2 : FRED and BARNEY
 
 
 
