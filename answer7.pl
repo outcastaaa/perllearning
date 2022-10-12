@@ -162,3 +162,15 @@ while (<>){
         print;
     }
 }
+
+while (<>){
+    if (/wilma.*fred|fred.*wilma/){
+        print;
+    }
+}
+
+while (<>){
+    if (/wilma/ && /fred/){
+        print;
+    }
+}
