@@ -1,4 +1,4 @@
-#! user/bin/perl
+#!/user/bin/perl
 
 #$hash{$family_name}
 
@@ -104,3 +104,59 @@ foreach $person(sort keys %books){
 print "PATH is $ENV{PATH}.\n";
 #PATH is /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/xuruizhi/.local/bin:/home/xuruizhi/bin:/home/xuruizhi/share/mysql/bin:/home/xuruizhi/.cargo/bin:/home/linuxbrew/.linuxbrew/opt/python@3.9/bin:/home/linuxbrew/.linuxbrew/opt/python@3.9/libexec/bin:/home/linuxbrew/.linuxbrew/Cellar/perl/5.34.0/bin:/home/xuruizhi/bin:/home/xuruizhi/.local/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/d/MEGA11:/mnt/c/Program Files/PowerShell/7/:/mnt/d/c/bin:/mnt/d/perl/site/bin:/mnt/d/perl/bin:/mnt/c/Users/XRZ/scoop/shims:/mnt/c/Users/XRZ/AppData/Local/Microsoft/WindowsApps:/mnt/d/Microsoft VS Code/bin:/mnt/c/Users/XRZ/AppData/Local/GitHubDesktop/bin:/snap/bin.
 
+#127-1:
+my %names = ('fred' => 'flintstone', 'barney' => 'rubble', 'wilma' => 'flintstone',);
+my $person;
+foreach $person(keys %names){
+    print "$person\'s family name is $names{$person}.\n";
+}
+
+my %names = ('fred' => 'flintstone', 'barney' => 'rubble', 'wilma' => 'flintstone',);
+#只能输入一个人；
+#chomp(my $person = <STDIN>);
+print "please enter some names.\n";
+chomp(my @persons= <STDIN>);
+foreach my $person(@persons){
+   print "$person\'s family name is $names{$person}.\n";
+}
+
+
+#127-2:
+print "please enter some words.\n";
+chomp(my @words = <STDIN>);
+my $word;
+my %count;
+
+foreach $word(@words){
+    $count{$word} = $count{$word} +1;
+}
+
+#检查下hash表
+my ($key, $value);
+foreach $key (keys %count){
+    $value = $count{$key};
+    print "$key => $value\n";
+}
+
+foreach $word(sort keys %count){
+   print "$word had appeared $count{$word}.\n";
+}
+
+#127-3;
+my $key;
+foreach  $key(sort keys %ENV){
+    printf "%10s\n %30s\n", $key, $ENV{$key};
+}
+
+#或者先确定最长长度
+my $longest;
+foreach my $key(keys %ENV){
+    my $key_length = length($key);
+    if ($key_length > $longest){
+       $longest = $key_length; 
+    }
+    $longest;
+}
+foreach my $key (sort keys %ENV){
+    printf " %${longset}s,   %s\n", $key, $ENV{$key};
+}

@@ -1,0 +1,4 @@
+cat = 'bamm-bamm';
+if (/bamm-?bamm/){
+    print "it matched8.\n";
+}
