@@ -109,5 +109,11 @@ print "$match_count : $text\n";
 #2 : FRED and BARNEY
 
 
+#跨行模式匹配
+
+$_ = "im much better\nthan Barney is\nat bowling,\nwilma.\n";
+if (/^wilma\b/im){
+    print "found 'wilma' at start of line\n";
+}
 
 
