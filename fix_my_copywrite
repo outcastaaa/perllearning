@@ -1,0 +1,7 @@
+$^I = ".bak";
+while (<>){
+    if (/\A#!/){
+        $_ = $_ . "##copyright (C) 2022 by xrz\n";
+    }
+    print $_;
+}

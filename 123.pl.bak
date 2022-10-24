@@ -1,5 +1,4 @@
 #!user/bin/perl
-##copyright (C) 2022 by xrz
 
  print 'don\'t do it!\n';
 

@@ -1,7 +1,6 @@
 #读取标准输入:
 
 #!user/bin/perl
-##copyright (C) 2022 by xrz
 use v5.34;
 
 #while (defined ($line = <STDIN>)){

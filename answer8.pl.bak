@@ -1,5 +1,4 @@
 #!/user/bin/perl
-##copyright (C) 2022 by xrz
 
 #/i和字母大小写无关
 while (<>){

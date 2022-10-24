@@ -1,0 +1,20 @@
+# 将所有文件名称储存在新的hash里面；
+my %do_there;  
+foreach ($ARGV){
+    $do_these{$_} = 1;
+}
+#用key值获得读取文件的名称，在hash表中删除已经包含声明的文件名称；
+while(<>){
+    if (/\A## copyright/i){
+        delete $do_these{$ARGV};
+}
+}
+
+@ARGV = sort keys %do_these;
+$^I = ".bak";
+while (<>){
+if (/\A#!/){
+$_ = $_ . "##copyright (C) 2022 by xrz\n";
+}
+print;
+}

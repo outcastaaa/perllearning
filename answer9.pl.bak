@@ -234,5 +234,5 @@ while (<$in_fh>){
 #perl -p -i -w -e 's/fred/\#/ig' file && perl -p -i -w -e 's/wilma/Fred/ig' file && perl -p -i -w -e 's/\#/wilma/ig' file 
 #成功
 
-#183-4:   perl ./fix_my_copywrite *.pl
+
 

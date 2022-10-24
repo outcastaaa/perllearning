@@ -1,6 +1,5 @@
 
 #!/usr/bin/perl
-##copyright (C) 2022 by xrz
 
 #序列匹配
 $_ = "yabba dabba doo";

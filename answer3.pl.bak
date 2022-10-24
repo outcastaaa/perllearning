@@ -1,6 +1,5 @@
 #!user/bin/perl
 ##copyright (C) 2022 by xrz
-##copyright (C) 2022 by xrz
 use warnings;
 @rocks = qw {1 2 3 };
 print "4 @rocks 5\n";
