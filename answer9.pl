@@ -13,6 +13,24 @@ s/\w+$/($`!)$&/;
 print "$_\n";
 #huge (huge !)dinosaur
 
+
+
+#/r的用法
+my $original = "fred ate a rib";
+(my $copy = $original) =~ s/a rib/10 ribs/;
+print "$copy \n $original\n";  #fred ate 10 ribs, fred ate a rib
+
+my $original = "fred ate a rib";
+my $copy = $original =~ s/a rib/10 ribs/;
+print "$copy \n $original\n";   #1, fred ate 10 ribs
+
+my $original = "fred ate a rib";
+my $copy = $original =~ s/a rib/10 ribs/r;
+print "$copy \n $original\n"; # fred ate 10 ribs, fred ate a rib
+
+
+
+
 $_="i saw Barney with fred.\n";
 s/(\w+) with (\w+)/\U$2\E with $1/i;
 print "$_"; 
