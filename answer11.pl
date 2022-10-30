@@ -50,7 +50,7 @@ print "$newname,$old_name,$newname\n";
 use v5.34;
 use Module::CoreList;
 
-my %module = %{ $Module::CoreList::version{5.034}};
+my %module = %{ $Module::CoreList::version{5.034}}; #哈希引用
 #foreach my $key(sort keys %module){
 #    my $value = $module{$key};
  #   print "$value.\n";

@@ -60,3 +60,52 @@ say "number & number_str:",$number &. $number_str;
 #number & number_str:137
 say "number_str & string:",$number_str &. $string;
 #number_str & string:!%
+
+
+
+
+
+#231-2:
+print"231-2:\n";
+if (! @ARGV){
+    die "nothing.\n";
+}
+my $oldst_nm = shift @ARGV; #将第一个文件名导出
+my $oldst_age = -M $oldst_nm;#把第一个文件的日期当作最长的先
+
+
+foreach (@ARGV){
+    my $age = -M ;
+    
+    if ($oldst_age < $age ){
+       ($oldst_nm, $oldst_age)  = ($_, $age);
+    }   
+}
+print "$oldst_nm is the oldst and is $oldst_age\n";
+
+
+#自己的写法：也可以  但是只有一个文件的时候报错
+print"231-2:自己的写法\n";
+    die "nothingaaaa.\n" unless @ARGV; 
+
+
+foreach my $file_name(@ARGV){
+    my $age = -M $file_name;
+    my $oldst_age = 0;
+    if ($oldst_age < $age ){
+       $oldst_nm = $file_name;  #这个地方有问题，名字只能是最后一个，不是最老的那个，没办法和时间一一对应
+       $oldst_age = $age;
+    }   
+}
+print "$oldst_nm is the oldst and is $oldst_age\n";
+
+#231-3:
+use v5.34; #是使用栈式文件测试操作所必须的
+die "no files\n" unless @ARGV;
+
+foreach my $file (@ARGV){
+    if(-o -r -w $file){
+        print "this file $file is readable.\n";
+    }
+}
+
