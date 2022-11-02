@@ -134,4 +134,68 @@ print "@result \n";
 
 
 
+#262-1:
+my @num = qw{17 1000 04 1.50 3.14159 -10 1.5 4 2001 90210 666};
+sub by_number{ $a <=> $b};
+my @result = sort by_number @num;
+foreach $_(@result){
+    printf "%*g\n", 10, $_; #没用的0会丢失；如果用%*s字符串，没用的0会保留；
+}
 
+#262-2:
+my %lastname = qw{
+    fred flintstone Wilma Flintstone 
+    Barney Rubble  betty  rubble  PEBBLES FLINTSTONE Bamm Rubble
+};
+
+sub by_name{
+    "\L$lastname{$a}" cmp "\L$lastname{$b}"
+    or 
+    "\L$a" cmp "\L$b"
+}
+my @firstnames = sort by_name keys %lastname;
+
+foreach $_(@firstnames){
+    print "$_ 's lastname is $lastname{$_}\n";
+}
+
+#Flintstone 
+#FLINTSTONE
+#flintstone
+#Rubble
+#Rubble
+#rubble
+#fred
+#PEBBLES
+#Wilma
+#Bamm
+#Barney
+#betty
+
+#fred 's lastname is flintstone
+#PEBBLES 's lastname is FLINTSTONE
+#Wilma 's lastname is Flintstone
+#Bamm 's lastname is Rubble
+#Barney 's lastname is Rubble
+#betty 's lastname is rubble
+
+
+#262-3：
+print "please enter a string:\n";
+chomp(my $str = <STDIN>);
+print "what string you want to find:\n";
+chomp(my $string = <STDIN>);
+
+my @where = ();
+my $find = -1;
+
+while (1){
+    
+    $find = index($str, $string, $find +1);
+    last if $find == -1;
+    push @where, $find;
+}
+print "$string is in @where\n";
+
+#This is a test
+#t is in 10 13
